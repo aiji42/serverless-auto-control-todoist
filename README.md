@@ -36,8 +36,8 @@ ON/OFFが行われるとLINEに通知を送る
 
 ## Licence
 
-[MIT](https://github.com/aiji42/)
+[MIT](https://github.com/aiji42/serverless-auto-control-todoist/blob/master/LICENSE)
 
 ## Author
 
-[aiji42](https://github.com/aiji42)
+[AijiUejima](https://github.com/aiji42)
