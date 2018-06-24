@@ -29,6 +29,11 @@ ON/OFFが行われるとLINEに通知を送る
 6. `config.json`にLINEのトークンとTodoistのトークンを記載
 7. `serverless deploy`
 
+## TODO
+
+- 祝日だけでなく、自身のスケジュールを取得できるようにしたい
+    - GoogleCalendarでなく、timetreeから取得したい…
+
 ## Licence
 
 [MIT](https://github.com/aiji42/)
