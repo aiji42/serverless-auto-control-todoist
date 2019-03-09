@@ -22,15 +22,14 @@ provider:
   runtime: python3.6
   stage: ${opt:stage, 'dev'}
   environment:
-    TOKEN_LINE: ${file(./config.json):TOKEN_LINE}
-    TOKEN_TODOIST: ${file(./config.json):TOKEN_TODOIST}
+    TOKEN_LINE: ${env:TOKEN_LINE}
+    TOKEN_TODOIST: ${env:TOKEN_TODOIST}
 
 plugins:
   - serverless-python-requirements
-
 custom:
   pythonRequirements:
-    dockerizePip: true
+    dockerizePip: false
 
 # you can overwrite defaults here
 #  stage: dev

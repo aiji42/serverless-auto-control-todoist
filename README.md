@@ -20,14 +20,15 @@ ON/OFFが行われるとLINEに通知を送る
 
 ## Install
 
-1. `pip install`
-2. https://serverless.com/ に従ってAWSにデプロイできる準備をしておく
-    - credentialsとか
-3. Todoistの自分のAPIトークンを取得(マイページにある)
-4. [LineNotify](https://notify-bot.line.me/my/)のトークンを取得
-5. `cp ./config.json.local ./config.json`
-6. `config.json`にLINEのトークンとTodoistのトークンを記載
-7. `serverless deploy`
+1. AWSにて、severless deploy用のIAMを作成し、keyとaccess tokenを取得 
+2. Todoistの自分のAPIトークンを取得(マイページにある)
+3. [LineNotify](https://notify-bot.line.me/my/)のトークンを取得
+4. `.env`に上記の各種key,tokenを記載
+5. `cp ./.env.local ./.env`
+6. `docker-compose build`
+7. `docker-compose up -d`
+8. `docker-compose exec serverless bash`
+9. `sls deploy`
 
 ## TODO
 
