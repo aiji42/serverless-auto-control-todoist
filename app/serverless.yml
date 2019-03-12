@@ -24,6 +24,7 @@ provider:
   environment:
     TOKEN_LINE: ${env:TOKEN_LINE}
     TOKEN_TODOIST: ${env:TOKEN_TODOIST}
+    VACATION_MODE_PJ: ${env:VACATION_MODE_PJ}
 
 plugins:
   - serverless-python-requirements
