@@ -27,12 +27,16 @@ ON/OFFが行われるとLINEに通知を送る
 1. AWSにて、severless deploy用のIAMを作成し、keyとaccess tokenを取得 
 2. Todoistの自分のAPIトークンを取得(マイページにある)
 3. Todoistに任意のプロジェクトを作成しIDを取得(URLパラメータ内)
-3. [LineNotify](https://notify-bot.line.me/my/)のトークンを取得
-4. `.env`に上記の各種key,tokenを記載
+4. [LineNotify](https://notify-bot.line.me/my/)のトークンを取得
 5. `cp ./.env.local ./.env`
-6. `docker-compose build`
-7. `docker-compose up -d`
-8. `docker-compose exec serverless bash -c 'sls deploy -s #{stage}'`
+6. `.env`に上記の各種key,tokenを記載
+7. `docker-compose build`
+8. `docker-compose up -d`
+9. `docker-compose exec bash -c 'sls plugin install -n serverless-python-requirements'`
+
+## deployment
+
+`docker-compose exec serverless bash -c 'sls deploy -s #{stage}'`
 
 ## Licence
 
