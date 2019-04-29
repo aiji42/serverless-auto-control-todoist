@@ -17,26 +17,25 @@ ON/OFFが行われるとLINEに通知を送る
 - 一度下記Installに従ってデプロイすれば、スケジュールに従って定期実行してくれます
     - 初期値は毎日午前9時(UTC00:00)
     - 祝日情報は都度googleに問い合わせるので、アップデートは不要
-- 専用のTodoistプロジェクトを作成し、タスクの締切日を任意でバケーションモードに登録したい日で設定しておくと、  
+- 専用のTodoistプロジェクトを作成し、タスクの締切日を任意でバケーションモードに登録したい日で設定しておくと、
 祝日以外の任意の日もバケーションモードをONにしてくれます
     - 有給や代休などに使用できます
     ![vacation_mode_pj.png](./readme_vacation_mode_pj.png)
 
 ## Install
 
-1. AWSにて、severless deploy用のIAMを作成し、keyとaccess tokenを取得 
+1. AWSにて、severless deploy用のIAMを作成し、keyとaccess tokenを取得
 2. Todoistの自分のAPIトークンを取得(マイページにある)
 3. Todoistに任意のプロジェクトを作成しIDを取得(URLパラメータ内)
 4. [LineNotify](https://notify-bot.line.me/my/)のトークンを取得
 5. `cp ./.env.local ./.env`
 6. `.env`に上記の各種key,tokenを記載
 7. `docker-compose build`
-8. `docker-compose up -d`
-9. `docker-compose exec bash -c 'sls plugin install -n serverless-python-requirements'`
+8. `docker-compose run --rm serverless sls deploy -s #{stage: default is prod}`
 
 ## deployment
 
-`docker-compose exec serverless bash -c 'sls deploy -s #{stage}'`
+`docker-compose run --rm serverless sls deploy -s #{stage}`
 
 ## Licence
 
