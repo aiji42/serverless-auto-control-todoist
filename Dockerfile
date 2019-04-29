@@ -21,5 +21,11 @@ RUN pip install pipenv
 # install serverless framework
 RUN npm install -g serverless
 
-# set aws key 
+# set aws key
 RUN sls config credentials --provider aws --key $AWS_ACCESS_KEY_ID --secret $AWS_SECRET_ACCESS_KEY
+
+# install node_modules from project's packeage.json
+RUN mkdir -p /app
+WORKDIR /app
+ADD app/package.json /app/package.json
+RUN set -x && npm install

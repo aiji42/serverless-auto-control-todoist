@@ -1,16 +1,17 @@
 version: '3.5'
 services:
   serverless:
-    build: 
-      context: ./serverless
-      args: 
+    build:
+      context: ./
+      args:
         - AWS_ACCESS_KEY_ID=$AWS_ACCESS_KEY_ID
         - AWS_SECRET_ACCESS_KEY=$AWS_SECRET_ACCESS_KEY
     tty: true
     stdin_open: true
     image: serverless
-    volumes: 
+    volumes:
       - ./app:/app
+      - /app/node_modules
     working_dir: /app
     container_name: serverless
     env_file:
