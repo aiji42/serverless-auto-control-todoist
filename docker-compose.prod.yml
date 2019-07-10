@@ -1,6 +1,6 @@
 version: '3.5'
 services:
-  serverless:
+  serverless-prod:
     build:
       context: ./serverless
       args:
@@ -11,7 +11,7 @@ services:
     volumes:
       - ./serverless:/app
       - node_modules:/app/node_modules
-    env_file: .env.dev
-    command: bash -c "npm install & pip install -r requirements.txt"
+    env_file: .env
+    command: bash -c "npm install && sls deploy -s prod -v"
 volumes:
   node_modules:

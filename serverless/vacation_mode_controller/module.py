@@ -19,15 +19,14 @@ class Controller:
         return today in self._holidays.keys()
 
     def _get_custom_date_tasks(self):
-        today = datetime.date.today().strftime("%a %d %b")
+        today = datetime.date.today().strftime("%Y-%m-%d")
         tasks = []
         if self._todoist_vacation_mode_pj is None:
             return tasks
 
         for item in self._todoist_api.projects.get_data(self._todoist_vacation_mode_pj)['items']:
-            due = item['due_date_utc']
-            # Slicing :10 gives us the relevant parts
-            if due and due[:10] == today:
+            due = item['due']['date']
+            if due and due == today:
                 tasks.append(item)
         return tasks
 
